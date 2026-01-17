@@ -6,6 +6,6 @@ def home(request):
     return render(request, 'recipes/home.html')
 
 
-def ajuda(request):
+def help(request):
     return HttpResponse('Pagina de ajuda')
 
