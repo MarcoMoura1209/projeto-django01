@@ -45,7 +45,7 @@
     }
 
     body{
-        background-color:azure;
+        background-color:rgb(195, 195, 177);
     }
 
     .search-form {
@@ -79,4 +79,40 @@
         color: blue;
     }
 
+    .search-container {
+        padding: 0.8vw;
+    }
+
+    .main-content-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-content-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding-top: 0;
+        width: 70vw;
+        min-width: 250px;
+    }
+
+    .recipe img {
+        max-width: 100%;
+    }
+
+    .recipe {
+        background-color: white;
+        box-shadow: -5px 5px 10px rgba(0,0,0, 30%);
+        transition: all 350ms ease-in-out;
+        transform: scale(1);
+    }
+    
+    .recipe-list-item {
+        max-width: 640px;
+    }
+    
+    .recipe-list-item:hover {
+        transform: scale(1.02);
+    }
 </style>
