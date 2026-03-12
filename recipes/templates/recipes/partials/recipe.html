@@ -1,23 +1,23 @@
 <div class="recipe recipe-list-item">
     <div class="recipe-cover"><img src="https://placehold.co/1280x700/0000ff/FFF.png" alt="temporario" ></div>
     <div class="recipe-title-container">
-        <h2 class="recipe-title">Lorem ipsum dolor sit amet consectetur.</h2>
+        <h2 class="recipe-title"> {{ recipe.title }} </h2>
     </div>
 
     <div class="recipe-author">
         <span class="recipe-author-item">
             <i class="fa-solid fa-user"></i>
-            Marco Moura
+            {{recipe.author.first_name}} {{recipe.author.last_name}}
         </span>
         <span class="recipe-author-item">
             <i class="fa-regular fa-calendar"></i>
-            16/10/2026 as 11:21
+            {{ recipe.created_at|date:"d/m/Y" }} às {{ recipe.created_at|date:"H:i" }}
         </span>
         <span class="recipe-author-item">
             <a href="http://">
                 <i class="fa-solid fa-layer-group"></i>
                 <span>
-                    Cafe da manhã
+                    {{recipe.category.name}}
                 </span>
             </a>
         </span>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="recipe-content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, omnis.
+        {{recipe.description}}
     </div>
 
     <div class="recipe-meta-container">
@@ -35,7 +35,7 @@
                 Preparo
             </h3>
             <div class="recipe-meta-text">
-                0 minutos
+                {{ recipe.preparation_time }} {{ recipe.preparation_time_unit }}
             </div>
         </div>
         
@@ -45,7 +45,7 @@
                 Porções
             </h3>
             <div class="recipe-meta-text">
-                0 porções
+                {{ recipe.servings }} {{ recipe.servings_unit }}
             </div>
         </div>
     </div>
