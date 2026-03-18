@@ -5,11 +5,21 @@ from recipes.models import Recipe
 
 
 def home(request):
-    recipes = Recipe.objects.filter(
-        is_published=True
-        ).order_by('-id')
+    recipes = get_list_or_404(
+        Recipe.objects.filter(
+            is_published=True
+            ).order_by('-id')
+    )
+
     return render(request, 'recipes/pages/home.html', context={
         'recipes': recipes,
+    })
+
+
+def recipe(request, id):
+    return render(request, 'recipes/pages/recipe-views.html', context={
+        'is_detail_page': True,
+        'recipe': make_recipe(),
     })
 
 
@@ -22,11 +32,4 @@ def category(request, category_id):
     return render(request, 'recipes/pages/category.html', context={
         'recipes': recipes,
         'titleCategory': f'{recipes[0].category.name} - Category | '
-    })
-
-
-def recipe(request, id):
-    return render(request, 'recipes/pages/recipe-views.html', context={
-        'recipe': make_recipe(),
-        'is_detail_page': True,
     })
