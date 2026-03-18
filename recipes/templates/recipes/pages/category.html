@@ -1,5 +1,5 @@
 {% extends "global/base.html" %}
-{% block title %} Category | {% endblock title %}
+{% block title %} {{ titleCategory }} {% endblock title %}
 {% block content %}
 <div class="main-content-list">
     {% for recipe in recipes %}
@@ -7,4 +7,3 @@
     {% endfor %}
 </div>
 {% endblock content %}
- 

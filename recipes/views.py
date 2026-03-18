@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from utils.recipe.factory import make_recipe
 
-from .models import Recipe
+from recipes.models import Recipe
 
 
 def home(request):
@@ -19,6 +19,7 @@ def category(request, category_id):
     ).order_by('-id')
     return render(request, 'recipes/pages/category.html', context={
         'recipes': recipes,
+        'titleCategory': f'{recipes.first().category.name} - Category | '
     })
 
 
