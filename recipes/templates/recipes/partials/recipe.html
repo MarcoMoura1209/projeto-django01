@@ -70,13 +70,13 @@
         </div>
     </div>
 
-    {% if is_detail %}
+    {% if is_detail_page %}
         <div class="preparation_steps">
             {{recipe.preparation_steps | linebreaksbr}}
         </div>
     {% endif %}
 
-    {% if not is_detail %}
+    {% if not is_detail_page %}
         <footer class="recipe-footer">
             <a href="{% url "recipes:recipe" recipe.id %}" class="recipe-read-more button-dark button-full-width">
                 
