@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, get_object_or_404
 from utils.recipe.factory import make_recipe
 
 from recipes.models import Recipe
@@ -17,9 +17,14 @@ def home(request):
 
 
 def recipe(request, id):
+    recipe = Recipe.objects.filter(
+        pk=id,
+        is_published=True,
+        ).order_by('-id').first
+
     return render(request, 'recipes/pages/recipe-views.html', context={
+        'recipe': recipe,
         'is_detail_page': True,
-        'recipe': make_recipe(),
     })
 
 
