@@ -19,7 +19,8 @@ def home(request):
 def recipe(request, id):
     recipe = get_object_or_404(
         Recipe,
-        pk=id
+        pk=id,
+        is_published=True,
     )
 
     return render(request, 'recipes/pages/recipe-views.html', context={
