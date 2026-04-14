@@ -67,4 +67,4 @@ class test_Recipe_Viwes(TestCase):
             preparation_steps_is_html=False,
             is_published=True,
         )
-        assert 1 == 1
+        pass
