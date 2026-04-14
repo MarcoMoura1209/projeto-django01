@@ -28,3 +28,16 @@ class test_Recipe_Viwes(TestCase):
     def test_recipe_home_view_loads_correct_template(self):
         response = self.client.get(reverse('recipes:home'))
         self.assertTemplateUsed(response, 'recipes/pages/home.html')
+
+    def test_recipe_category_view_returns_404_if_no_recipes_found(self):
+        response = self.client.get(
+            reverse('recipes:category', kwargs={'category_id': 1000})
+        )
+        self.assertEqual(response.status_code, 404)
+
+
+    def test_recipe_detail_view_returns_404_if_no_recipes_found(self):
+        response = self.client.get(
+            reverse('recipes:recipe', kwargs={'id': 1000})
+        )
+        self.assertEqual(response.status_code, 404)
