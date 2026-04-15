@@ -67,4 +67,12 @@ class test_Recipe_Viwes(TestCase):
             preparation_steps_is_html=False,
             is_published=True,
         )
-        pass
+
+        response = self.client.get(reverse('recipes:home'))
+        content = response.content.decode('utf-8')
+        response_context_recipes = response.context['recipes']
+
+        self.assertIn('Recipe Title', content)
+        self.assertIn('10 Minutos', content)
+        self.assertIn('5 Porções', content)
+        self.assertEqual(len(response_context_recipes), 1)
