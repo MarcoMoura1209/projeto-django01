@@ -5,9 +5,6 @@ from recipes.models import Recipe
 
 
 class test_Recipe_Viwes(TestRecipeBase):
-    def tearDown(self):
-        return super().tearDown()
-
     def test_recipe_home_view_function_is_correct(self):
         view = resolve(reverse('recipes:home'))
         self.assertIs(view.func, views.home)
